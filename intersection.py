@@ -14,13 +14,18 @@ Beware, the first answer may be in any order and still correct -- jd
 """
 
 def in_common_loops(a: list, b: list)-> list:
-    return []      #REPLACE WITH YOUR CODE
+    outlst = []
+    for i in a:
+        for j in b:
+            if i == j:
+                outlst.append(j)
+    return outlst      #REPLACE WITH YOUR CODE
 
 
 def in_common_LC(a: list, b: list)-> list:
-    return []      #REPLACE WITH YOUR CODE
+    return [j for j in b for i in a if i == j]      #REPLACE WITH YOUR CODE
 
-in_common = in_common_loops    # set the function name here to execute/test
+in_common = in_common_LC    # set the function name here to execute/test
 
 if __name__ == "__main__":
     import doctest

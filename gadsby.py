@@ -14,6 +14,7 @@ lineCount = 0
 # loop over file object
 with open('GadsbyTrimmed.txt') as f:    # EXTEND CODE TO HUNT FOR 'e's
     for line in f:
+        print(line[1])
         lineCount += 1
 
 print("line count: ", lineCount)
