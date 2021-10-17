@@ -68,7 +68,7 @@ def f3tail(n: int) -> int:
     return fib_helper(n, 1, 1, 1, 2)
 
 
-f3 = f3loop            # replace with name of function to execute/test
+f3 = f3tail            # replace with name of function to execute/test
 
 """ if you want to time, remove comment delimiters
 
