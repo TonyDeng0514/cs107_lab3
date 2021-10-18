@@ -12,6 +12,7 @@ please add a few more, esp. extreme
 
 >>> assert not palindrome('Tony')
 >>> assert not palindrome("Mom")
+>>> assert palindrome('hello olleh')
 """
 
 def palindrome(s: str)-> bool:
