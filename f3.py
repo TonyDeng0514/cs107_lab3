@@ -33,7 +33,17 @@ f3(n)   === 1  if n < 3
 """
 
 import time
-import math
+# import math
+# importing the sys module
+import sys
+ 
+# the setrecursionlimit function is
+# used to modify the default recursion
+# limit set by python. Using this,
+# we can increase the recursion limit
+# to satisfy our needs
+ 
+sys.setrecursionlimit(10**6)
 
 def f3loop(n: int) -> int:
     assert n >= 0
@@ -68,16 +78,69 @@ def f3tail(n: int) -> int:
     return fib_helper(n, 1, 1, 1, 2)
 
 
-f3 = f3tail            # replace with name of function to execute/test
+f3 = f3loop            # replace with name of function to execute/test
 
-""" if you want to time, remove comment delimiters
+# if you want to time, remove comment delimiters
 
 start = time.time()
 for n in range(100, 1001, 100):
     print(n, f3(n))
 stop = time.time()
 print("elapsed time: ", stop - start)
-"""
+
+
+'''
+For tail recursion method.
+Trial 1: time is 0.004 sec.
+Trial 2: time is 0.003 sec.
+Trial 3: time is 0.003 sec.
+Trial 4: time is 0.004 sec.
+Trial 5: time is 0.004 sec.
+Trial 6: time is 0.004 sec.
+Trial 7: time is 0.003 sec.
+Trial 8: time is 0.004 sec.
+Trial 9: time is 0.003 sec.
+Trial 10: time is 0.004 sec.
+Trial 11: time is 0.003 sec.
+Trial 12: time is 0.004 sec.
+Trial 13: time is 0.003 sec.
+Trial 14: time is 0.003 sec.
+Trial 15: time is 0.004 sec.
+The average time is .0035 sec.
+The standard deviation is .0005 sec.
+
+For loop method.
+Trial 1: time is 0.002 sec.
+Trial 2: time is 0.002 sec.
+Trial 3: time is 0.001 sec.
+Trial 4: time is 0.002 sec.
+Trial 5: time is 0.002 sec.
+Trial 6: time is 0.002 sec.
+Trial 7: time is 0.002 sec.
+Trial 8: time is 0.002 sec.
+Trial 9: time is 0.001 sec.
+Trial 10: time is 0.002 sec.
+Trial 11: time is 0.001 sec.
+Trial 12: time is 0.002 sec.
+Trial 13: time is 0.001 sec.
+Trial 14: time is 0.002 sec.
+Trial 15: time is 0.001 sec.
+The average time is .0017 sec.
+The standard deviation is .0005 sec.
+
+Through the data we collected, it is obvious that the loop version of f3 is faster than the 
+tail recursion version of it.
+However, both are significantly faster than the recursion version.
+
+I'm actually surprised by this result since I thought recursion should always be faster than
+other type of algorithms, especially in for f3.
+Nevertheless, I could have overlooked the fact that f3 has base 3 so any recursion around it would
+have execution time that is a power of 3.
+
+The reason why tail recursion is slower than the loop version is probably the sample is still
+too small. If we go up to 100000, tail recursion is probably faster than loop.
+'''
+
 
 if __name__ == "__main__":
     # doctest use, as per http://docs.python.org/lib/module-doctest.html
