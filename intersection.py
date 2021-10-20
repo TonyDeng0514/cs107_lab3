@@ -19,17 +19,18 @@ Beware, the first answer may be in any order and still correct -- jd
 """
 
 def in_common_loops(a: list, b: list)-> list:
-    outlst = []
-    for i in a:
-        for j in b:
+    outlst = []  # innocent output list
+    for i in a:  # loop through all the element in the first list
+        for j in b:  # compare to each of the second element
             if i == j:
-                outlst.append(j)
-    return outlst      #REPLACE WITH YOUR CODE
+                outlst.append(j)  # if match, append to the output list
+    return outlst      
 
 
 def in_common_LC(a: list, b: list)-> list:
-    outlst = []
-    [outlst.append(i) for i in a if i in b and i not in outlst]     #REPLACE WITH YOUR CODE
+    outlst = []  # innocent output list
+    [outlst.append(i) for i in a if i in b and i not in outlst]     # use list comprehension to append it
+                                                                    # feels like cheating, but acutally not lol.
     return outlst
 
 in_common = in_common_LC    # set the function name here to execute/test
